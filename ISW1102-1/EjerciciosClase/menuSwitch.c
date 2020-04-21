@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-void main()
+int main()
 {
   int edad, op;
   char nombre[16];
