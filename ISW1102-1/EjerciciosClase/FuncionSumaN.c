@@ -93,7 +93,7 @@ void sumaN(int cantNum)
   {
     printf("Ingrese el numero #%d: ",i);
     scanf("%d",&num);
-    while(num<0 )
+    while(num<0)
     {
       printf("ERROR: Ingrese un numero positivo:");
       scanf("%d",&num);
