@@ -101,5 +101,5 @@ void sumaN(int cantNum)
     suma=suma+num;
     i++;
   }
-  printf("La suma es: %d",suma);
+  printf("La suma es: %d\n\n\n",suma);
 }
