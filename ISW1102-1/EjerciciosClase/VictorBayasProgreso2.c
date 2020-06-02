@@ -1,4 +1,6 @@
 /*
+Examen Victor Bayas
+
 Entrada
 entero Votos
 
@@ -25,11 +27,11 @@ void ingresoDatos(int[]);
 void mostrarDatos(int[]);
 //main
 void main(){//main
-  int op,votos[100];//declaro
+  int op,*votos[100];//declaro
   //el arreglo es para pasarlo como referencia a las funciones
   while(op!=3){//sale si es 3
     //mensajes y lecturas
-    printf("INFO: Ingrese primero los votos\n1. Ingresar Votos\n2. Imprimir Votos Ingresados\n3. Salir\nIngrese una opcion: ");//imprime
+    printf("Menu - Victor Bayas\nINFO: Ingrese primero los votos\n1. Ingresar Votos\n2. Imprimir Votos Ingresados\n3. Salir\nIngrese una opcion: ");//imprime
     scanf("%d",&op);//leo
     system("cls");//limpiar pantalla
     switch(op){
