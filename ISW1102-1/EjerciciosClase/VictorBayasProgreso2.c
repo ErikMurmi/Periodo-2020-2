@@ -27,7 +27,7 @@ void ingresoDatos(int[]);
 void mostrarDatos(int[]);
 //main
 void main(){//main
-  int op,*votos[100];//declaro
+  int op,votos[100];//declaro
   //el arreglo es para pasarlo como referencia a las funciones
   while(op!=3){//sale si es 3
     //mensajes y lecturas
@@ -36,12 +36,12 @@ void main(){//main
     system("cls");//limpiar pantalla
     switch(op){
       case 1:
-      ingresoDatos(votos[100]);//llamo funcion
+      ingresoDatos(votos);//llamo funcion
       system("pause");//pausar pantalla
       system("cls");//limpiar pantalla
       break;//sale switch
       case 2:
-      mostrarDatos(votos[100]);//llamo funcion
+      mostrarDatos(votos);//llamo funcion
       system("pause");//pausar pantalla
       system("cls");//limpiar pantalla
       break;//sale switch
