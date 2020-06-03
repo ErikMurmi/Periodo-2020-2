@@ -23,11 +23,10 @@ total de votos
 #include <stdio.h>
 #include <stdlib.h>
 //prototipos
-void ingresoDatos(int[]);
-void mostrarDatos(int[]);
-//main
+void ingresoDatos(int[],int *);
+void mostrarDatos(int[],int);
 void main(){//main
-  int op,votos[100];//declaro
+  int op,tam=0,votos[tam];//declaro
   //el arreglo es para pasarlo como referencia a las funciones
   while(op!=3){//sale si es 3
     //mensajes y lecturas
@@ -36,12 +35,12 @@ void main(){//main
     system("cls");//limpiar pantalla
     switch(op){
       case 1:
-      ingresoDatos(votos);//llamo funcion
+      ingresoDatos(votos,&tam);//llamo funcion
       system("pause");//pausar pantalla
       system("cls");//limpiar pantalla
       break;//sale switch
       case 2:
-      mostrarDatos(votos);//llamo funcion
+      mostrarDatos(votos,tam);//llamo funcion
       system("pause");//pausar pantalla
       system("cls");//limpiar pantalla
       break;//sale switch
@@ -56,7 +55,7 @@ void main(){//main
   }//fin
 }//fin del main
 
-void ingresoDatos(int votos[]){//funcion paso x referencia
+void ingresoDatos(int votos[],int *tam){//funcion paso x referencia
   int voto_actual=-1;//inicializo
   for(int i=0;voto_actual!=0;i++){//for
     printf("Ingrese su voto del 1 al 5 (0=salir): ");//imprime
@@ -65,14 +64,16 @@ void ingresoDatos(int votos[]){//funcion paso x referencia
       printf("ERROR\nIngrese su voto del 1 al 5 (0=salir): ");//imprime
       scanf("%d",&voto_actual);//lee
     }//fin
+    *tam+=1;
     votos[i]=voto_actual;//regresa referencia
   }//fin
+  *tam-=1;
 }//fin
 
-void mostrarDatos(int votos[]){//funcion sin retorno
-  int c1=0,c2=0,c3=0,c4=0,c5=0,suma;//declaro
+void mostrarDatos(int votos[],int tam){//funcion sin retorno
+  int c1=0,c2=0,c3=0,c4=0,c5=0;//declaro
   printf("Votos Ingresados por teclado\n");//muestra
-  for(int i=0;i<100;i++){//comienzo a mostrar votos
+  for(int i=0;i<tam;i++){//comienzo a mostrar votos
     if(votos[i]>0 && votos[i]<=5){//solo validos
       printf("Voto: %d\n",votos[i]);//imprimo voto
       //validaciones para asignar los votos a cada Candidato
@@ -90,12 +91,11 @@ void mostrarDatos(int votos[]){//funcion sin retorno
     else if(votos[i]==0)//sale
     break;//sale
   }//fin
-  suma=c1+c2+c3+c4+c5;//sumo todo
   //imprimo total y porcentaje de cada Candidato
-  printf("Candidato 1: %d ===> %.2f%%\n",c1,(float)(c1*100)/suma);//Candidato 1
-  printf("Candidato 2: %d ===> %.2f%%\n",c2,(float)(c2*100)/suma);//Candidato 2
-  printf("Candidato 3: %d ===> %.2f%%\n",c3,(float)(c3*100)/suma);//Candidato 3
-  printf("Candidato 4: %d ===> %.2f%%\n",c4,(float)(c4*100)/suma);//Candidato 4
-  printf("Candidato 5: %d ===> %.2f%%\n",c5,(float)(c5*100)/suma);//Candidato 5
-  printf("TOTAL Votos Validos: %d\n",suma);//total
+  printf("Candidato 1: %d ===> %.2f%%\n",c1,(float)(c1*100)/tam);//Candidato 1
+  printf("Candidato 2: %d ===> %.2f%%\n",c2,(float)(c2*100)/tam);//Candidato 2
+  printf("Candidato 3: %d ===> %.2f%%\n",c3,(float)(c3*100)/tam);//Candidato 3
+  printf("Candidato 4: %d ===> %.2f%%\n",c4,(float)(c4*100)/tam);//Candidato 4
+  printf("Candidato 5: %d ===> %.2f%%\n",c5,(float)(c5*100)/tam);//Candidato 5
+  printf("TOTAL Votos Validos: %d\n",tam);//total
 }//fin
